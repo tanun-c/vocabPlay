@@ -1,0 +1,37 @@
+.container(ng-hide="finished")
+  
+  .row
+    .col-xs-12
+      .question-banner
+        {{ activeQuestion.question }}
+
+  .row
+    .col-xs-6(ng-repeat="choice in activeQuestion.choices")
+      .answer-banner(ng-click="check(choice)", ng-class="{wrong:choice.wrong,right:choice.right}")
+        {{ choice.text }}
+
+  .row
+    .col-xs-12
+      .explanation-banner(ng-show="answerSelected")
+        {{ activeQuestion.explanation }}
+
+  .row
+    .col-xs-12
+      .next-banner.text-center(ng-show="answerSelected", ng-click="nextQuestion()")
+        i.fa.fa-arrow-right
+
+.container(ng-show="finished")
+  .row
+    .col-xs-12
+      .question-banner
+        {{ 'Congratulation' }}
+
+  .row
+    .col-xs-12
+      .explanation-banner
+        span Total: {{ totalRight }}
+        br
+        span Wrong answers: {{ totalWrong }}
+  .row
+    .col-xs-12
+      .next-banner(ng-click="end()") Back to main menu

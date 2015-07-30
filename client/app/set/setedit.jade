@@ -1,0 +1,39 @@
+.container
+  .row
+    .col-xs-4
+      label Name
+      br
+      input.form-control(ng-model="i.name")
+    .col-xs-4
+      a.btn.btn-default(ng-click="newQuestion()") new question
+      a.btn.btn-primary(ng-click="save()") save
+      a.btn.btn-primary(ng-click="menu()") menu
+
+  .row(ng-repeat="question in i.questions")
+    hr
+    .col-xs-12
+      .row
+        .col-xs-12 Question {{$index + 1}} 
+          a.btn.btn-danger(ng-click="removeQuestion($index)")
+            i.fa.fa-times
+      .row
+        .col-xs-12
+          input.form-control(ng-model="question.question")
+      .row
+        .col-xs-12 Choices
+      .row
+        div(ng-repeat="choice in question.choices")
+          .col-xs-4
+            input.form-control(ng-model="choice.text")
+          .col-xs-2
+            a.btn(ng-click="setCorrectAnswer(question, choice)", ng-class="{'btn-primary':choice.correct, 'btn-default':!choice.correct}")
+              i.fa.fa-check
+            a.btn.btn-danger(ng-click="removeChoice(question, $index)")
+              i.fa.fa-times
+      .row
+        .col-xs-12
+          a.btn.btn-default(ng-click="newChoice(question)") new choice
+      .row
+        .col-xs-12
+          label Explanation
+          input.form-control(ng-model="question.explanation")

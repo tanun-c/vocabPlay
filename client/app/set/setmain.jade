@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-xs-12
+      a.btn.btn-primary(ng-click="newSet()") new
+
+
+  .row(ng-repeat="set in sets")
+    .col-xs-1 {{$index}}
+    .col-xs-2 {{set.name}}
+    .col-xs-1
+      a.btn.btn-default(ui-sref="set-edit({id: set._id})") edit
+    .col-xs-1
+      a.btn.btn-primary(ui-sref="set-play({id: set._id})") play
+
