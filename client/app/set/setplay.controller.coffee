@@ -1,11 +1,15 @@
 'use strict'
 
 angular.module 'nisyvocabApp'
-.controller 'SetPlayCtrl', ($scope, $http, $stateParams, $state) ->
+.controller 'SetPlayCtrl', ($scope, $http, $stateParams, $state, ngAudio) ->
   id = $stateParams.id
   index = 0
   $scope.totalRight = 0
   $scope.totalWrong = 0
+
+  $scope.sound = {}
+  $scope.sound.correct = ngAudio.load "/assets/sound/correct-answer.mp3"
+  $scope.sound.incorrect = ngAudio.load "/assets/sound/wrong-answer.mp3"
 
   $scope.load = () ->
     $http
@@ -32,9 +36,11 @@ angular.module 'nisyvocabApp'
       $scope.answerSelected = true
       answer.right = true
       $scope.totalRight++
+      $scope.sound.correct.play()
     else
       answer.wrong = true
       $scope.totalWrong++
+      $scope.sound.incorrect.play()
 
     $scope.saveStat $scope.activeQuestion.question, answer
 
@@ -43,7 +49,8 @@ angular.module 'nisyvocabApp'
       .post '/api/stats/', 
         question: question,
         correct: answer.correct,
-        answer: answer.text
+        answer: answer.text,
+        fromSet: id
       .success (res) ->
 
   $scope.load()

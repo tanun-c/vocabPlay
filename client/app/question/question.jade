@@ -1,2 +1,9 @@
-.col-md-12
-    | This is the question view.
+.container
+  .row(ng-repeat="statItem in stat")
+    .col-xs-4 {{statItem.question}}
+    .col-xs-1 {{statItem.total}}
+    .col-xs-1 {{statItem.correct}}
+    .col-xs-6
+      span(ng-repeat="recordItem in statItem.records")
+        i.fa.fa-check(ng-if="recordItem.correct", style="color:green")
+        i.fa.fa-times(ng-if="!recordItem.correct", style="color:red")

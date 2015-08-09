@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var QuestionSchema = new Schema({
   question: String,
+  questionType: String,
   choices: [{
   	text: String,
   	correct: Boolean

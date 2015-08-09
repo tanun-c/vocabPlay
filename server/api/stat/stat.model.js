@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var StatSchema = new Schema({
+  fromSet: String,
   question: String,
   correct: Boolean,
   answer: String,

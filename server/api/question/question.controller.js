@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Question = require('./question.model');
+var Stat = require('./../stat/stat.model');
 
 // Get list of questions
 exports.index = function(req, res) {
@@ -53,6 +54,39 @@ exports.destroy = function(req, res) {
     });
   });
 };
+
+exports.stat = function(req, res) {
+  Stat.find({}).sort([['date', 'ascending']]).exec(function (err, questions) {
+    if(err) { return handleError(res, err); }
+    
+    var result = [];
+
+    for (var i = 0; i < questions.length; i++) {
+      var question = questions[i];
+      
+      var existing = _.find(result, {question:question.question});
+      
+      if (existing) {
+        if (question.correct) existing.correct++;
+        existing.total++;
+        existing.records.push({correct:question.correct});
+      } else {
+        var newItem = {
+          correct: 0, total: 0, records: [], question:question.question
+        };
+
+        if (question.correct) newItem.correct++;
+        newItem.total++;
+        newItem.records.push({correct:(question.correct)});
+
+        result.push(newItem);
+      }
+
+    }
+
+    return res.status(200).json(result);
+  });
+}
 
 function handleError(res, err) {
   return res.status(500).send(err);

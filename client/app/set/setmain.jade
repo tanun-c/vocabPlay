@@ -6,7 +6,7 @@
 
   .row(ng-repeat="set in sets")
     .col-xs-1 {{$index}}
-    .col-xs-2 {{set.name}}
+    .col-xs-2 {{set.name}}: {{set.stats.ratio * 100}}
     .col-xs-1
       a.btn.btn-default(ui-sref="set-edit({id: set._id})") edit
     .col-xs-1

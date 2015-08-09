@@ -1,33 +1,154 @@
-div(ng-include='"components/navbar/navbar.html"')
+//- div(ng-include='"components/navbar/navbar.html"')
 
 header#banner.hero-unit
   .container
-    h1 'Allo, 'Allo!
-    p.lead Kick-start your next web app with Angular Fullstack
-    img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
+    .row
+      .col-xs-12.text-right
+        h1 Nisy.me
+        span.lead Happiness is an attitude
 
 .container
   .row
-    .col-lg-12
-      h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
-        li
-          a(href='#', tooltip='{{thing.info}}')
-            | {{thing.name}}
-            button.close(type='button', ng-click='deleteThing(thing)') ×
+    .col-lg-12.text-center
+      
+      .row
+        .col-lg-3
+        .col-lg-6
+          h2 งานสอน
+          p 
+            = 'เน้นปูพื้นฐานให้เข้าใจทฤษฎี '
+            = 'เตรียมความพร้อมสำหรับแก้โจทย์ปัญหาพลิกแพลง นักเรียนจะไม่ได้สูตรลัด แต่จะได้ความรู้สำหรับการเรียนมหาวิทยาลัย'
+      
+      .row
+        .col-lg-3
+        
+        .col-lg-2 
+          h3 เคมี
+          p รับสอนวิชาเคมีระดับชั้นมัธยม 1 - 6 และติวสอบแอดมิชชั่น
 
-  form.thing-form
-    label Syncs in realtime across clients
-    p.input-group
-      input.form-control(type='text', placeholder='Add a new thing here.', ng-model='newThing')
-      span.input-group-btn
-        button.btn.btn-primary(type='submit', ng-click='addThing()') Add New
+        .col-lg-2 
+          h3 คณิตศาสตร์
+          p รับสอนวิชาเคมีระดับชั้นมัธยม 1 - 6 และติวสอบแอดมิชชั่น
+
+        .col-lg-2 
+          h3 วิทยาศาสตร์
+          p วิชาวิทยาศาสตร์ทั่วไประดับ ประถม 4 - 6 กับมัธยม 1 - 3 และ วิทยาศาสตร์กาพภาพระดับมัธยม 4 - 6
+
+      .row
+        .col-lg-3
+        .col-lg-6
+          h2 รูปแบบการสอน
+
+      .row
+        .col-lg-3
+        
+        .col-lg-2 
+          h3 กลุ่มเล็ก
+          p กลุ่มละ 5 - 10 คน ตามการนัดหมาย เป็นกันเอง มีเวลาถามตอบ คอยซักถามความเข้าใจตลอดชั่วโมงเรียน
+          a.btn.btn-default(ng-click="openPrice()") อัตราค่าสอน
+
+        .col-lg-2 
+          h3 ชั้นเรียน
+          p สอนแบบบรรยายในชั้นเรียน
+
+        .col-lg-2
+          h3 การทดลอง
+          p จัดให้นักเรียนทำการทดลอง หรือสาธิตการทดลองให้นักเรียนได้เชื่อมโยงทฤษฎีเข้ากับปรากฏการณ์จริง
+
+
+      .row
+        .col-lg-3
+        .col-lg-6
+          h2 ประสบการณ์สอน
+
+      .row
+        .col-lg-2
+        .col-lg-8
+          lead 2558
+          p ติวเตอร์ส่วนตัว สถาบัน A-plus Inter Ed.
+
+      .row
+        .col-lg-2
+        .col-lg-8
+          lead 2558
+          p วิทยาศาสตร์ โรงเรียนจินดารัตน์ จังหวัดลพบุรี
+
+      .row
+        .col-lg-2
+        .col-lg-8
+          lead 2556 - 2558
+          p เคมี มัธยมศึกษาปีที่ 5 โรงเรียนเขมะสิริอนุสรณ์
+
+      .row
+        .col-lg-2
+        .col-lg-8
+          lead 2548 - 2558
+          p ติวเตอร์อิสระ
+
+      .row
+        .col-lg-3
+        .col-lg-6
+          h2 ความสำเร็จของนักเรียน
+          
+          span.lead 2558
+          p
+            i.fa.fa-user 
+          p คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+
+          p
+            i.fa.fa-user 
+          p สาธิตมหาวิทยาลัยศรีนครินทร์วิโรฒน์ ปทุมวัน (มัธยมต้น)
+
+          p
+            i.fa.fa-user 
+          p สวนกุหลาบวิทยาลัย (มัธยมปลาย)
+
+          p
+            i.fa.fa-user 
+          p คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+
+          p
+            i.fa.fa-user 
+          p คณะสหเวชศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+
+          p
+            i.fa.fa-user 
+          p โรงเรียนสาธิตมหาวิทยาลัยมหิดล (นานาชาติ)
+
+          span.lead 2555
+          p
+            i.fa.fa-user 
+          p โรงเรียนเตรียมอุดมศึกษา สายศิลป์ภาษา
+
+          p
+            i.fa.fa-user 
+          p มหาวิทยาลัยศิลปากร
+
+          span.lead 2554
+          p
+            i.fa.fa-user 
+          p คณะศิลปศาสตร์ มหาวิทยาลัยธรรมศาสตร์
+
+          span.lead 2553
+          p
+            i.fa.fa-user 
+          p คณะศิลปศาสตร์ มหาวิทยาลัยธรรมศาสตร์
+
+
+
+      
+
 
 footer.footer
   .container
-    p
-      | Angular Fullstack v2.0.13
-      = ' | '
-      a(href='https://twitter.com/tyhenkel') @tyhenkel
-      = ' | '
-      a(href='https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open') Issues
+    .row
+      .col-lg-3
+      .col-lg-6.text-center
+        //- h2 ติดต่อ
+
+        p 
+          = 'โทรศัพท์ '
+          = '089-485-1899'
+
+        p 
+          = 'chemistry.nisy@gmail.com'

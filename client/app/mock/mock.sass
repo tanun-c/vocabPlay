@@ -1,0 +1,152 @@
+$xs-screen: "only screen and (max-width : 768px)"
+$sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
+
+.mock
+  background-image: url("/assets/images/mock/bg.png")
+  background-repeat: repeat-y
+  background-size: 100%
+
+  .banner-container
+    background-color: #fff
+    padding: 0px
+    
+    .banner
+      // display: block
+      height: 50px
+      margin: 10px 0px
+
+      @media #{$xs-screen}
+        max-width: 80vw
+        height: auto
+
+  .navbar
+    background-color: #861001
+    border-radius: 0px
+    min-height: 30px
+    margin-bottom: 0px
+
+    .quicklink-container
+      color: #fff
+      padding-top: 5px
+
+      @media #{$xs-screen}
+        text-align: center
+
+  .main-body
+    min-height: 100px
+    padding-bottom: 50px
+
+    .no-man-land
+      height: 40px
+
+    .main-menu
+      a.main-menu-item
+        font-size: 20px
+        color: #fff
+        margin-right: 40px
+        cursor: pointer
+
+        &:hover
+          text-decoration: none
+
+    .mobile-menu
+      margin-top: 17px
+      margin-bottom: 17px
+
+      .mobile-menu-item
+        border: 1px solid #fff
+        text-align: right
+        padding-top: 30px
+        height: 20vh
+        min-height: 100px
+        background-color: #444
+        color: #fff
+
+        .fa
+          // display: none
+          margin-bottom: 15px
+          font-size: 40px
+
+        .mobile-menu-caption
+          display: block
+          position: absolute
+          right: 10px
+          bottom: 7px
+
+    .menu-separator
+      display: inline-block
+      width: 100%
+      border-bottom: 2px solid #fff
+
+    .main-content-row
+      .main-content
+        padding-left: 100px
+        padding-right: 100px
+
+        @media #{$xs-screen}
+          padding-left: 20px
+          padding-right: 20px
+
+        .news-banner
+          height: 300px
+          background-size: cover
+          background-repeat: no-repeat
+          background-position: center
+          padding: 0
+          font-size: 20px
+
+          @media #{$sm-screen}
+            height: 200px
+            font-size: 16px
+
+          @media #{$xs-screen}
+            height: 180px
+            font-size: 16px
+
+          .news-topic-container
+            height: 100%
+            background-color: rgba(0,0,0,0.6)
+
+            .news-header
+              text-align: right
+              display: inline-block
+              position: absolute
+              top: 0px
+              right: 0px
+              padding: 10px 20px 10px 20px
+              color: #fff
+              // font-size: 20px
+
+            .news-topic
+              text-align: right
+              display: inline-block
+              position: absolute
+              bottom: 0px
+              right: 0px
+              padding: 0px 20px 10px 20px
+              color: #fff
+              // font-size: 20px
+
+              &.small
+                font-size: 14px
+
+          .fa-twitter
+            color: #fff
+            font-size: 60px
+            display: inline-block
+            position: absolute
+            left: 20px
+            top: 20px
+
+            @media #{$sm-screen}
+              font-size: 40px
+              left: 10px
+              top: 10px
+          
+          .text-box
+            color: #fff
+            // font-size: 20px
+            text-align: right
+            padding: 50px 20px 10px 20px
+            position: absolute
+            bottom: 10px

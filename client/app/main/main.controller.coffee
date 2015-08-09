@@ -1,22 +1,11 @@
 'use strict'
 
 angular.module 'nisyvocabApp'
-.controller 'MainCtrl', ($scope, $http, socket) ->
-  $scope.awesomeThings = []
+.controller 'MainCtrl', ($scope, $http, socket, $modal) ->
 
-  $http.get('/api/things').success (awesomeThings) ->
-    $scope.awesomeThings = awesomeThings
-    socket.syncUpdates 'thing', $scope.awesomeThings
-
-  $scope.addThing = ->
-    return if $scope.newThing is ''
-    $http.post '/api/things',
-      name: $scope.newThing
-
-    $scope.newThing = ''
-
-  $scope.deleteThing = (thing) ->
-    $http.delete '/api/things/' + thing._id
-
-  $scope.$on '$destroy', ->
-    socket.unsyncUpdates 'thing'
+  $scope.openPrice = () ->
+    $modal.open
+      # animation: $scope.animationsEnabled,
+      templateUrl: 'app/main/mainpricemodal.html'
+      # controller: 'ModalInstanceCtrl'
+      size: 'lg'

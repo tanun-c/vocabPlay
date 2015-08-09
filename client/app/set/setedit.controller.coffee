@@ -12,8 +12,12 @@ angular.module 'nisyvocabApp'
 
   $scope.newQuestion = () ->
     $scope.i.questions = [] unless $scope.i.questions?
-    $scope.i.questions.push 
+    $scope.i.questions.push
       choices: []
+
+  $scope.duplicateQuestion = ($index) ->
+    item = angular.copy $scope.i.questions[$index]
+    $scope.i.questions.push item
 
   $scope.setCorrectAnswer = (question, choice) ->
 

@@ -16,6 +16,8 @@
         .col-xs-12 Question {{$index + 1}} 
           a.btn.btn-danger(ng-click="removeQuestion($index)")
             i.fa.fa-times
+          a.btn.btn-default(ng-click="duplicateQuestion($index)")
+            i.fa.fa-copy
       .row
         .col-xs-12
           input.form-control(ng-model="question.question")
@@ -24,7 +26,7 @@
       .row
         div(ng-repeat="choice in question.choices")
           .col-xs-4
-            input.form-control(ng-model="choice.text")
+            input.form-control.input-sm(ng-model="choice.text")
           .col-xs-2
             a.btn(ng-click="setCorrectAnswer(question, choice)", ng-class="{'btn-primary':choice.correct, 'btn-default':!choice.correct}")
               i.fa.fa-check

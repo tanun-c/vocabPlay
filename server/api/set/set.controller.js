@@ -6,7 +6,7 @@ var Question = require('./../question/question.model');
 
 // Get list of sets
 exports.index = function(req, res) {
-  Set.find().exec(function (err, sets) {
+  Set.find().sort('createdOn').exec(function (err, sets) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(sets);
   });
