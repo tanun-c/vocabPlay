@@ -3,94 +3,124 @@
 header#banner.hero-unit
   .container
     .row
-      .col-xs-12.text-right
+      .col-xs-12
         h1 Nisy.me
         span.lead Happiness is an attitude
 
-.container
+.container.main
   .row
-    .col-lg-12.text-center
+    .col-sm-12.text-center
       
       .row
-        .col-lg-3
-        .col-lg-6
+        .col-sm-3.hidden-xs
+        .col-xs-offset-1.col-xs-10.col-sm-offset-0.col-sm-6
           h2 งานสอน
           p 
             = 'เน้นปูพื้นฐานให้เข้าใจทฤษฎี '
-            = 'เตรียมความพร้อมสำหรับแก้โจทย์ปัญหาพลิกแพลง นักเรียนจะไม่ได้สูตรลัด แต่จะได้ความรู้สำหรับการเรียนมหาวิทยาลัย'
+            = 'เตรียมความพร้อมสำหรับแก้โจทย์ปัญหาพลิกแพลง นักเรียนจะไม่ได้สูตรลัด แต่จะได้ความเข้าใจ เตรียมความพร้อมสู่การเรียนระดับมหาวิทยาลัย'
       
+      .row.content-row
+        .col-xs-offset-2.col-xs-8.col-sm-offset-2.col-sm-8
+          .row.text-center
+            .col-xs-12.col-sm-offset-0.col-sm-4 
+              i.fa.fa-flask
+              h3 - เคมี -
+              p 
+                = 'ระดับชั้นมัธยม 1 - 6'
+                br.hidden-xs
+                = ' และติวสอบแอดมิชชั่น'
+
+            .col-xs-12.col-sm-offset-0.col-sm-4 
+              i.fa.fa-bar-chart
+              h3 - คณิตศาสตร์ -
+              p
+                = 'ระดับชั้นมัธยม 1 - 6'
+                br.hidden-xs
+                = ' และติวสอบแอดมิชชั่น'
+
+            .col-xs-12.col-sm-offset-0.col-sm-4 
+              i.fa.fa-rocket
+              h3 - วิทยาศาสตร์ -
+              p  
+                = 'วิทยาศาสตร์ทั่วไป'
+                br.hidden-xs
+                = ' ประถม 4 - 6'
+              p
+                = 'วิทยาศาสตร์ทั่วไป'
+                br.hidden-xs
+                = ' มัธยม 1 - 3'
+              p 
+                = 'วิทยาศาสตร์กาพภาพ'
+                br.hidden-xs
+                = ' มัธยม 4 - 6'
+
       .row
-        .col-lg-3
-        
-        .col-lg-2 
-          h3 เคมี
-          p รับสอนวิชาเคมีระดับชั้นมัธยม 1 - 6 และติวสอบแอดมิชชั่น
-
-        .col-lg-2 
-          h3 คณิตศาสตร์
-          p รับสอนวิชาเคมีระดับชั้นมัธยม 1 - 6 และติวสอบแอดมิชชั่น
-
-        .col-lg-2 
-          h3 วิทยาศาสตร์
-          p วิชาวิทยาศาสตร์ทั่วไประดับ ประถม 4 - 6 กับมัธยม 1 - 3 และ วิทยาศาสตร์กาพภาพระดับมัธยม 4 - 6
-
-      .row
-        .col-lg-3
-        .col-lg-6
+        .col-sm-3.hidden-xs
+        .col-xs-offset-1.col-xs-10.col-sm-offset-0.col-sm-6
           h2 รูปแบบการสอน
 
+      .row.content-row
+        .col-xs-offset-2.col-xs-8.col-sm-offset-2.col-sm-8
+          .row.text-center
+            .col-xs-12.col-sm-offset-0.col-sm-4 
+              .circle-img(style="background-image:url('../assets/images/small.jpg')")
+              h3 กลุ่มเล็ก
+              p กลุ่มละ 5 - 10 คน ตามการนัดหมาย เป็นกันเอง มีเวลาถามตอบ คอยซักถามความเข้าใจตลอดชั่วโมงเรียน
+              a.btn.btn-default(ng-click="openPrice()") อัตราค่าสอน
+
+            .col-xs-12.col-sm-offset-0.col-sm-4 
+              .circle-img(style="background-image:url('../assets/images/class.jpg')")
+              h3 ชั้นเรียน
+              p สอนแบบบรรยายในชั้นเรียน
+
+            .col-xs-12.col-sm-offset-0.col-sm-4
+              .circle-img(style="background-image:url('../assets/images/lab.jpg')")
+              h3 การทดลอง
+              p จัดให้นักเรียนทำการทดลอง หรือสาธิตการทดลองให้นักเรียนได้เชื่อมโยงทฤษฎีเข้ากับปรากฏการณ์จริง
+
+            .clearfix
+
+            .col-xs-12.col-sm-offset-4.col-sm-4
+              .circle-img(style="background-image:url('../assets/images/computer.jpg')")
+              h3 ออนไลน์
+              p (เร็วๆนี้)
+
+
       .row
-        .col-lg-3
-        
-        .col-lg-2 
-          h3 กลุ่มเล็ก
-          p กลุ่มละ 5 - 10 คน ตามการนัดหมาย เป็นกันเอง มีเวลาถามตอบ คอยซักถามความเข้าใจตลอดชั่วโมงเรียน
-          a.btn.btn-default(ng-click="openPrice()") อัตราค่าสอน
-
-        .col-lg-2 
-          h3 ชั้นเรียน
-          p สอนแบบบรรยายในชั้นเรียน
-
-        .col-lg-2
-          h3 การทดลอง
-          p จัดให้นักเรียนทำการทดลอง หรือสาธิตการทดลองให้นักเรียนได้เชื่อมโยงทฤษฎีเข้ากับปรากฏการณ์จริง
-
-
-      .row
-        .col-lg-3
-        .col-lg-6
+        .col-sm-3
+        .col-sm-6
           h2 ประสบการณ์สอน
 
       .row
-        .col-lg-2
-        .col-lg-8
-          lead 2558
+        .col-sm-2
+        .col-sm-8
+          h3 2558
           p ติวเตอร์ส่วนตัว สถาบัน A-plus Inter Ed.
 
       .row
-        .col-lg-2
-        .col-lg-8
-          lead 2558
-          p วิทยาศาสตร์ โรงเรียนจินดารัตน์ จังหวัดลพบุรี
+        .col-sm-2
+        .col-sm-8
+          h3 2558
+          p วิชาวิทยาศาสตร์ โรงเรียนจินดารัตน์ จังหวัดลพบุรี
 
       .row
-        .col-lg-2
-        .col-lg-8
-          lead 2556 - 2558
-          p เคมี มัธยมศึกษาปีที่ 5 โรงเรียนเขมะสิริอนุสรณ์
+        .col-sm-2
+        .col-sm-8
+          h3 2556 - 2558
+          p วิชาเคมี มัธยมศึกษาปีที่ 5 โรงเรียนเขมะสิริอนุสรณ์
 
       .row
-        .col-lg-2
-        .col-lg-8
-          lead 2548 - 2558
+        .col-sm-2
+        .col-sm-8
+          h3 2548 - 2558
           p ติวเตอร์อิสระ
 
       .row
-        .col-lg-3
-        .col-lg-6
+        .col-sm-3
+        .col-sm-6
           h2 ความสำเร็จของนักเรียน
           
-          span.lead 2558
+          h3 2558
           p
             i.fa.fa-user 
           p คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
@@ -115,7 +145,7 @@ header#banner.hero-unit
             i.fa.fa-user 
           p โรงเรียนสาธิตมหาวิทยาลัยมหิดล (นานาชาติ)
 
-          span.lead 2555
+          h3 2555
           p
             i.fa.fa-user 
           p โรงเรียนเตรียมอุดมศึกษา สายศิลป์ภาษา
@@ -124,31 +154,26 @@ header#banner.hero-unit
             i.fa.fa-user 
           p มหาวิทยาลัยศิลปากร
 
-          span.lead 2554
+          h3 2554
           p
             i.fa.fa-user 
           p คณะศิลปศาสตร์ มหาวิทยาลัยธรรมศาสตร์
 
-          span.lead 2553
+          h3 2553
           p
             i.fa.fa-user 
           p คณะศิลปศาสตร์ มหาวิทยาลัยธรรมศาสตร์
+      .row
+        .col-sm-3
+        .col-sm-6.text-center
+          h2 ติดต่อ
 
+          p 
+            = 'โทรศัพท์ '
+            = '089-485-1899'
 
-
-      
-
-
-footer.footer
-  .container
-    .row
-      .col-lg-3
-      .col-lg-6.text-center
-        //- h2 ติดต่อ
-
-        p 
-          = 'โทรศัพท์ '
-          = '089-485-1899'
-
-        p 
-          = 'chemistry.nisy@gmail.com'
+          p 
+            = 'chemistry.nisy@gmail.com'
+            br
+            br
+            br
