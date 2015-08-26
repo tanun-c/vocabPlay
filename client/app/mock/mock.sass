@@ -11,7 +11,6 @@ $sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
     padding: 0px
     
     .banner
-      // display: block
       height: 50px
       margin: 10px 0px
 
@@ -27,10 +26,26 @@ $sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
 
     .quicklink-container
       color: #fff
-      padding-top: 5px
+      padding-top: 7px
 
       @media #{$xs-screen}
         text-align: center
+
+    .search-container
+      background-color: #661001
+      .form-control
+        background: none
+        border: none
+        border-radius: 0px
+        color: #fff
+        outline: none
+        box-shadow: none
+      .fa-search
+        color: #ddd
+        position: absolute
+        font-size: 16px
+        right: 8px
+        top: 8px
 
   .main-body
     min-height: 100px
@@ -43,22 +58,40 @@ $sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
       a.main-menu-item
         font-size: 20px
         color: #fff
-        margin-right: 40px
+        margin-left: 20px
+        margin-right: 20px
         cursor: pointer
 
         &:hover
           text-decoration: none
 
+    .sub-menu
+      color: #fff
+      height: 18px
+      
+      @media #{$sm-screen}
+        font-size: 14px
+
+      a
+        color: #fff
+        font-size: 16px
+        @media #{$sm-screen}
+          font-size: 14px
+
+        &:hover
+          text-decoration: none
+          color: #ccc
+
     .mobile-menu
-      margin-top: 17px
-      margin-bottom: 17px
+      // margin-top: 17px
+      // margin-bottom: 17px
 
       .mobile-menu-item
-        border: 1px solid #fff
+        // border: 1px solid #fff
         text-align: right
         padding-top: 30px
-        height: 20vh
-        min-height: 100px
+        height: 15vh
+        min-height: 80px
         background-color: #444
         color: #fff
 
@@ -74,14 +107,22 @@ $sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
           bottom: 7px
 
     .menu-separator
-      display: inline-block
-      width: 100%
+      margin-top: 15px
+      margin-bottom: 20px
       border-bottom: 2px solid #fff
+
+    .sub-menu-separator
+      margin-top: 10px
+      margin-bottom: 15px
+      border-bottom: 1px solid #fff
+      // transition: 0.5s linear all
+
+      &.ng-hide
+        // margin-top: 0px
+        // margin-bottom: 0px
 
     .main-content-row
       .main-content
-        padding-left: 100px
-        padding-right: 100px
 
         @media #{$xs-screen}
           padding-left: 20px
@@ -150,3 +191,40 @@ $sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
             padding: 50px 20px 10px 20px
             position: absolute
             bottom: 10px
+  @media #{$xs-screen}
+    // padding-left: 1px
+    // padding-right: 1px
+
+    .mobile-menu
+      margin-top: 0
+      margin-bottom: 0
+
+    .mobile-menu-item
+      border: none
+      border-bottom: 1px solid #fff
+      text-align: right
+      background-size: cover
+      background-position: center
+      height: 25px
+      background-color: #444
+      color: #fff
+      cursor: pointer
+
+      .fa
+        display: none
+
+      .mobile-menu-caption
+        display: block
+        position: absolute
+        right: 7vw
+        bottom: 10px
+        font-size: 20px
+        padding: 5px 10px
+        background-color: rgba(0,0,0,0.5)
+        
+  .mobile-section-header
+    background-color: #222
+    color: #fff
+    padding-left: 20px
+    padding-bottom: 10px
+    border-bottom: 1px solid #fff

@@ -7,7 +7,9 @@ angular.module 'nisyvocabApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'ngAudio'
+  'ngAudio',
+  # 'ngAnimate',
+  'ngTouch'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) ->
   $urlRouterProvider

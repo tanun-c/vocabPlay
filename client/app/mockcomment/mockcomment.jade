@@ -3,37 +3,60 @@
     .col-xs-12.text-center.banner-container
       img.banner(src="/assets/images/mock/banner.png")
 
-  .row.navbar.hidden-xs
+  .row.navbar
     .col-xs-12
-
       .row
-        .col-xs-12.quicklink-container
-          span Quick Links:
-          = ' | '
-          = 'ดาวน์โหลดเอกสาร' + ' | '
-          = 'บุคลากร' + ' | '
-          = 'ภาควิชา' + ' | '
+        .col-lg-8.col-md-7.col-sm-6.col-lg-offset-1.col-sm-offset-1.quicklink-container.hidden-xs
+          span Quick Links: 
+          //- = ' : '
+          = 'ดาวน์โหลดเอกสาร' + ' · '
+          = 'บุคลากร' + ' · '
+          = 'ภาควิชา'
+        .col-lg-2.col-md-3.col-sm-4.col-xs-12.search-container
+          input.form-control(placeholder="ค้นหาภายในเว็บไซต์")
+          i.fa.fa-search
+
+  .row
+    .col-sm-10.col-sm-offset-1.carousel-container
+      carousel(interval="3000")
+        slide(ng-repeat="slide in slides" active="slide.active")
+          .image(style="background-image:url({{slide.image}})")
+          .carousel-caption
+            span.lead {{slide.text}}
 
   .main-body
     .row.no-man-land.hidden-xs
 
     .row.main-menu.hidden-xs
-      .col-sm-12
-        a.main-menu-item(ng-click="help()") เกี่ยวกับคณะ
+      .col-lg-10.col-lg-offset-1.text-center
+        a.main-menu-item(ng-click="chooseMenu('about')") เกี่ยวกับคณะ
         a.main-menu-item ข่าวสาร
-        a.main-menu-item วิชาการ
-        a.main-menu-item หน่วยงาน
-        a.main-menu-item นิสิต
+        a.main-menu-item(ng-click="chooseMenu('academics')") วิชาการ
+        a.main-menu-item(ng-click="chooseMenu('research')") วิจัย
+        a.main-menu-item(ng-click="chooseMenu('facility')") หน่วยงาน
+        a.main-menu-item(ng-click="chooseMenu('student')") นิสิต
 
     .row.mobile-menu.visible-xs
-      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_about.jpg')")
-        i.fa.fa-gear
-        br
-        strong.mobile-menu-caption เกี่ยวกับคณะ
       .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_news.jpg')")
         i.fa.fa-newspaper-o
         br
         strong.mobile-menu-caption ข่าวสาร
+      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_contact.jpg')")
+        i.fa.fa-phone
+        br
+        strong.mobile-menu-caption ติดต่อ
+      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_map.jpg')")
+        i.fa.fa-map-marker
+        br
+        strong.mobile-menu-caption การเดินทางมาคณะ
+      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_personnel.jpg')")
+        i.fa.fa-users
+        br
+        strong.mobile-menu-caption บุคลากร
+      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_about.jpg')")
+        i.fa.fa-gear
+        br
+        strong.mobile-menu-caption เกี่ยวกับคณะ
       .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_academic.jpg')")
         i.fa.fa-book
         br
@@ -50,33 +73,72 @@
         i.fa.fa-file-text
         br
         strong.mobile-menu-caption แบบฟอร์ม
-      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_personnel.jpg')")
-        i.fa.fa-users
-        br
-        strong.mobile-menu-caption บุคลากร
-      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_contact.jpg')")
-        i.fa.fa-phone
-        br
-        strong.mobile-menu-caption ติดต่อ
-      .col-xs-12.mobile-menu-item(style="background-image:url('/assets/images/longbanner_map.jpg')")
-        i.fa.fa-map-marker
-        br
-        strong.mobile-menu-caption การเดินทางมาคณะ
-
-        
 
     .row.hidden-xs
-      .col-sm-12.text-center
-        .menu-separator
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.sub-menu-separator(ng-show="showingSubmenu")
 
-    .row.no-man-land.hidden-xs
+    .row.hidden-xs.sub-menu(ng-show="showingSubmenu")
+      .col-lg-10.col-lg-offset-1.text-center(ng-show="activeMenu == 'about'")
+        a แนะนำคณะ 
+        span · 
+        a การบริหาร 
+        span · 
+        a รางวัล 
+        span  · 
+        a บุคลากร 
+      .col-lg-10.col-lg-offset-1.text-center(ng-show="activeMenu == 'academics'")
+        a
+          strong หลักสูตร 
+        span · 
+        a ปริญญาบัณฑิต 
+        span · 
+        a บัณฑิตศึกษา 
+        span · 
+        a
+          strong สื่อการสอน 
+        span · 
+        a CourseVille 
+        span · 
+        a E-learning 
+      .col-lg-10.col-lg-offset-1.text-center(ng-show="activeMenu == 'research'")
+        a โครงการ 
+        span · 
+        a งานวิจัยนิสิต 
+        span · 
+        a สิทธิบัตร 
+      .col-lg-10.col-lg-offset-1.text-center(ng-show="activeMenu == 'facility'")
+        a หน่วยงานในคณะ 
+        span · 
+        a ภาควิชา 
+        span · 
+        a ศูนย์เชี่ยวชาญพิเศษ 
+      .col-lg-10.col-lg-offset-1.text-center(ng-show="activeMenu == 'student'")
+        a การสมัครเข้าเรียน  
+        span · 
+        a ทุนการศึกษา 
+        span · 
+        a โครงการแลกเปลี่ยน 
+        span · 
+        a กิจกรรม 
+        span · 
+        a กรรมการนิสิต 
+        span · 
+        a การเดินทางมาคณะ 
+          
+
+
+
+    .row.hidden-xs
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.menu-separator
+        
+    //- .row.no-man-land.hidden-xs
 
     .row.mobile-section-header.visible-xs
       .col-xs-12
         h2 ข่าวสารล่าสุด
 
     .row.main-content-row
-      .col-sm-12.main-content
+      .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.main-content
         .row
           .col-sm-8.col-xs-12.news-banner(style="background-image:url('/assets/images/mock/news1.jpg')")
             .news-topic-container
@@ -125,4 +187,3 @@
               = '"'
             //- .news-topic-container
               //- .span.news-topic ค่ายวิษณุกรรมบุตร ครั้งที่ 13
-
