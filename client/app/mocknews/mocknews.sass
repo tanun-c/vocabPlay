@@ -10,9 +10,14 @@ $xs-screen: "only screen and (max-width : 768px)"
 
 .mock.news
   font-family: 'Sarabun'
+  .main-body
+    padding-bottom: 0px
 .news
   padding-left: 0
   padding-right: 0
+
+  .news-container
+    padding: 0px 0px
 
   .news-content
     padding: 50px 0px
@@ -23,6 +28,7 @@ $xs-screen: "only screen and (max-width : 768px)"
     @media #{$xs-screen}
       border-top: 3px solid #700
       padding: 20px 0px
+      font-size: 24px
 
     .news-heading
       padding: 0px 50px
