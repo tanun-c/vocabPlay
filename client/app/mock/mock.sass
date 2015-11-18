@@ -1,230 +1,218 @@
 $xs-screen: "only screen and (max-width : 768px)"
-$sm-screen: "only screen and (min-width : 768px) and (max-width : 992px)"
+$brand-color: "rgb(147, 39, 44)"
+$brand-color-light: "rgb(167, 49, 54)"
+$brand-color-very-light: "rgb(167, 69, 74)"
 
-.mock
-  background-image: url("/assets/images/mock/bg.png")
-  background-repeat: repeat-y
-  background-size: 100%
+@font-face
+  font-family: 'Sarabun'
+  src: url("../assets/fonts/THSarabunNew.ttf") format("truetype")
 
-  .banner-container
-    background-color: #fff
-    padding: 0px
-    
-    .banner
-      height: 50px
-      margin: 10px 0px
+@mixin placeholder()
+  input::-webkit-input-placeholder
+    @content
+  input:-moz-placeholder
+    @content
+  input::-moz-placeholder
+    @content
+  input:-ms-input-placeholder
+    @content
 
-      @media #{$xs-screen}
-        max-width: 80vw
-        height: auto
+.eng-home
+  // font-family: 'Sarabun'
 
-  .navbar
-    background-color: #861001
-    border-radius: 0px
-    min-height: 30px
-    margin-bottom: 0px
-
-    .quicklink-container
+  .hero-unit
+    a
       color: #fff
-      padding-top: 7px
+      transition: 0.3s all
 
-      @media #{$xs-screen}
-        text-align: center
+      &:hover
+        text-decoration: none
+        color: #{$brand-color-very-light}
 
-    .search-container
-      background-color: #661001
-      .form-control
-        background: none
-        border: none
-        border-radius: 0px
-        color: #fff
-        outline: none
-        box-shadow: none
-      .fa-search
-        color: #ddd
-        position: absolute
-        font-size: 16px
-        right: 8px
-        top: 8px
-
-  .main-body
-    min-height: 100px
-    padding-bottom: 50px
-
-    .no-man-land
-      height: 40px
-
-    .main-menu
-      a.main-menu-item
-        font-size: 20px
-        color: #fff
-        margin-left: 20px
-        margin-right: 20px
-        cursor: pointer
-
-        &:hover
-          text-decoration: none
-
-    .sub-menu
-      color: #fff
-      height: 18px
+    .video-container
       
-      @media #{$sm-screen}
-        font-size: 14px
+      .video-background
+        position: fixed
+        top: 50%
+        left: 50%
+        min-width: 100%
+        min-height: 100%
+        width: auto
+        height: auto
+        z-index: -100
+        -webkit-transform: translateX(-50%) translateY(-50%)
+        transform: translateX(-50%) translateY(-50%)
+        // background: url(polina.jpg) no-repeat
+        background-size: cover
 
-      a
-        color: #fff
-        font-size: 16px
-        @media #{$sm-screen}
-          font-size: 14px
+      .video-overlay
+        position: fixed
+        top: 50%
+        left: 50%
+        min-width: 100%
+        min-height: 100%
+        width: auto
+        height: auto
+        z-index: -99
+        -webkit-transform: translateX(-50%) translateY(-50%)
+        transform: translateX(-50%) translateY(-50%)
+        background-color: rgba(0,0,0,0.85)
+        background-size: cover
 
-        &:hover
-          text-decoration: none
-          color: #ccc
+        .logo-container
+          margin-top: 25vh
+          .logo
+            width: 60%
+            min-width: 300px
+        .search-container
+          margin-top: 60px
 
-    .mobile-menu
-      // margin-top: 17px
-      // margin-bottom: 17px
+          .search-box
+            background: none
+            border: 2px solid #666
+            font-size: 18px
+            padding: 12px 25px
+            background-color: rgba(120,120,120,0.1)
+            color: #ccc
+            width: 40%
+            transition: 0.3s all
+            outline: none
 
-      .mobile-menu-item
-        // border: 1px solid #fff
-        text-align: right
-        padding-top: 30px
-        height: 15vh
-        min-height: 80px
-        background-color: #444
-        color: #fff
+            @include placeholder()
+              color: #444
 
-        .fa
-          // display: none
-          margin-bottom: 15px
-          font-size: 40px
+            &:focus
+              border-color: #ccc
+              background-color: rgba(120,120,120,0)
 
-        .mobile-menu-caption
-          display: block
-          position: absolute
-          right: 10px
-          bottom: 7px
+        .ticker-caption-container
+          margin-top: 20vh
+          color: #fff
+          font-size: 18px
+          opacity: 1
+          transition: 0.5s all
 
-    .menu-separator
-      margin-top: 15px
-      margin-bottom: 20px
-      border-bottom: 2px solid #fff
+          &.ng-hide
+            opacity: 0
 
-    .sub-menu-separator
-      margin-top: 10px
-      margin-bottom: 15px
-      border-bottom: 1px solid #fff
-      // transition: 0.5s linear all
+        .ticker-container
+          margin-top: 5px
+          opacity: 1
+          transition: 0.5s all
 
-      &.ng-hide
-        // margin-top: 0px
-        // margin-bottom: 0px
+          &.ng-hide
+            opacity: 0
 
-    .main-content-row
-      .main-content
-
-        @media #{$xs-screen}
-          padding-left: 20px
-          padding-right: 20px
-
-        .news-banner
-          height: 300px
-          background-size: cover
-          background-repeat: no-repeat
-          background-position: center
-          padding: 0
-          font-size: 20px
-
-          @media #{$sm-screen}
-            height: 200px
-            font-size: 24px
-
-          @media #{$xs-screen}
-            height: 180px
-            font-size: 24px
-
-          .news-topic-container
-            height: 100%
-            background-color: rgba(0,0,0,0.6)
-
-            .news-header
-              text-align: right
-              display: inline-block
-              position: absolute
-              top: 0px
-              right: 0px
-              padding: 10px 20px 10px 20px
-              color: #fff
-              // font-size: 20px
-
-            .news-topic
-              text-align: right
-              display: inline-block
-              position: absolute
-              bottom: 0px
-              right: 0px
-              padding: 0px 20px 10px 20px
-              color: #fff
-              // font-size: 20px
-
-              &.small
-                font-size: 14px
-
-          .fa-twitter
-            color: #fff
-            font-size: 60px
+          .active-ticker
             display: inline-block
-            position: absolute
-            left: 20px
-            top: 20px
-
-            @media #{$sm-screen}
-              font-size: 40px
-              left: 10px
-              top: 10px
-          
-          .text-box
             color: #fff
-            // font-size: 20px
-            text-align: right
-            padding: 50px 20px 10px 20px
-            position: absolute
-            bottom: 10px
-  @media #{$xs-screen}
-    // padding-left: 1px
-    // padding-right: 1px
+            font-size: 18px
+            // padding-left: 0px
+            // padding-right: 0px
+            transition: 0.5s all
+            // opacity: 1
 
-    .mobile-menu
-      margin-top: 0
-      margin-bottom: 0
+            &.ng-hide-remove
+              padding-left: 60px
+              opacity: 0
+            &.ng-hide-remove.ng-hide-remove-active
+              padding-left: 0px
+              opacity: 1
+            &.ng-hide-add
+              padding-right: 0px
+              opacity: 1
+            &.ng-hide-add.ng-hide-add-active
+              padding-right: 60px
+              opacity: 0
 
-    .mobile-menu-item
-      border: none
-      border-bottom: 1px solid #fff
-      text-align: right
+        .search-tips-container, .search-result-container
+          margin-top: 20px
+          font-size: 16px
+          color: #ccc
+          transition: 0.5s all
+          line-height: 1.6
+
+          &.ng-hide-remove
+            // padding-top: 80px
+            opacity: 0
+          &.ng-hide-remove.ng-hide-remove-active
+            // padding-top: 0px
+            opacity: 1
+          &.ng-hide-add
+            opacity: 1
+          &.ng-hide-add.ng-hide-add-active
+            opacity: 0
+
+        .search-result
+          color: #fff
+          margin-right: 4px
+
+
+
+
+
+
+
+
+  // MAIN CONTENT
+  .main-content
+    margin-top: 100vh
+    background-color: #fff
+    min-height: 100vh
+    padding: 0
+
+    .logo-container
+      margin-top: 10vh
+
+      .logo
+        width: 60%
+        min-width: 300px
+        opacity: 0
+        transition: 0.3s opacity
+
+        &.show-logo
+          opacity: 1
+
+    .hero-unit
+      margin-top: 10vh
+      margin-bottom: 15vh
+      height: 50vh
       background-size: cover
       background-position: center
-      height: 25px
-      background-color: #444
-      color: #fff
-      cursor: pointer
 
-      .fa
-        display: none
+  .row.main-row
+    padding-left: 0
+    padding-right: 0
+    margin-left: 0
+    margin-right: 0
+  // NEWS
+  .news-section
+    margin-top: 40px
+  .news-item-container
+    height: 200px
+    background-size: cover
+    background-position: center
+    background-color: #b9b9b9
+    margin-bottom: 15px
+    position: relative
+    cursor: pointer
+    transition: all 0.3s
 
-      .mobile-menu-caption
-        display: block
-        position: absolute
-        right: 7vw
-        bottom: 10px
+    &:hover
+      opacity: 0.8
+
+    .news-content
+      position: absolute
+      line-height: 1
+      bottom: 0px
+      left: 0px
+      
+      .news-caption
+        font-family: Sarabun
+        max-height: 80px
+        line-height: 0.95
         font-size: 20px
-        padding: 5px 10px
-        background-color: rgba(0,0,0,0.5)
-        
-  .mobile-section-header
-    background-color: #222
-    color: #fff
-    padding-left: 20px
-    padding-bottom: 10px
-    border-bottom: 1px solid #fff
+        padding: 10px 20px
+        overflow-y: hidden
+        color: #fff
+        background-color: rgba(0,0,0,0.7)

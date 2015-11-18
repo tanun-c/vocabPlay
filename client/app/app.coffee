@@ -8,7 +8,7 @@ angular.module 'nisyvocabApp', [
   'ui.router',
   'ui.bootstrap',
   'ngAudio',
-  # 'ngAnimate',
+  'ngAnimate',
   'ngTouch'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) ->
