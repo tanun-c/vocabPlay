@@ -1,0 +1,297 @@
+$xs-screen: "only screen and (max-width : 768px)"
+$xs-big-screen: "only screen and (min-width : 513px) and (max-width : 768px)"
+$brand-color: "rgb(147, 39, 44)"
+$brand-color-light: "rgb(167, 49, 54)"
+
+.supermock
+  font-family: 'Sarabun'
+  font-size: 24px
+
+  .circle-button
+    background-color: #{$brand-color}
+    color: #fff
+    width: 50px
+    height: 50px
+    border-radius: 25px
+    text-align: center
+    padding-top: 9px
+    border: 4px solid #fff
+    display: inline-block
+    transition: all 0.5s
+
+    &.active
+      color: #{$brand-color}
+      background-color: #fff
+      border: 3px solid #{$brand-color}
+
+  .news-mode
+    .circle-button
+      width: 30px
+      height: 30px
+      border-radius: 15px
+      font-size: 14px
+      padding-top: 4px
+
+
+
+  .mobile-main-icon.row
+    position: fixed
+    bottom: 0
+    width: 100%
+    z-index: 3
+    background-color: #fff
+    padding-top: 5px
+    padding-bottom: 5px
+
+    .mobile-main-icon.col
+      text-align: center
+
+
+  .mobile-menu
+    position: fixed
+    bottom: 100px
+    left: 0px
+    background-color: #{$brand-color}
+    width: 100vw
+    height: calc(100vh - 100px)
+    transition: bottom 0.5s
+    font-family: 'SarabunBold'
+    color: #fff
+    padding-top: 15px
+    padding-right: 10px
+    z-index: 2
+
+    &.ng-hide
+      bottom: -100vh
+
+    .mobile-menu-item.col
+      padding-top: 5px
+      padding-bottom: 5px
+      text-align: center
+      font-size: 24px
+      // border-bottom: 1px solid #fff
+
+      .fa
+        font-size: 14px
+
+  a
+    color: #{$brand-color}
+    text-decoration: none
+
+    &:hover, &:focus, &:visited
+      text-decoration: none
+      color: #{$brand-color-light}
+
+  .form-control
+    font-size: 24px
+    border: none
+    box-shadow: none
+    background: none
+
+  .header
+    background-image: url('/assets/images/mock/banner.png')
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    height: 80px
+    padding-top: 20px
+    padding-bottom: 20px
+    margin-top: 40px
+
+    @media #{$xs-screen}, #{$xs-big-screen}
+      height: 60px
+      padding-top: 20px
+      padding-bottom: 100px
+      transition: padding-bottom 0.5s
+
+      &.finish-search
+        padding-bottom: 80px
+
+  .mobile-search.row
+    background-color: #fff
+    border-top: 1px solid #{$brand-color}
+    border-bottom: 1px solid #{$brand-color}
+
+    .mobile-search.col
+      height: 40px
+      padding-top: 5px
+      padding-bottom: 2px
+
+      .form-control
+        text-align: center
+
+  .mobile-search-result.row
+    z-index: 2
+    max-height: calc(100vh - 300px)
+    overflow-y: scroll
+    .mobile-search-result.col
+      // min-height: 40px
+
+      .loading-img-container
+        text-align: center
+
+        img.loading-img
+          width: 100%
+          max-width: 200px
+          display: inline-block
+
+      .search-result-item.row
+        border-bottom: 1px solid #{$brand-color}
+        
+        &.ng-enter 
+          transition: 0.5s linear all
+          opacity: 0
+        
+        &.ng-enter-active 
+          opacity: 1
+        
+
+        .search-result-item.col
+          padding-top: 5px
+          padding-bottom: 0px
+          min-height: 60px
+
+          &:hover, &:focus
+            color: #fff
+            background-color: #{$brand-color}
+
+          @media #{$xs-big-screen}
+            min-height: 90px
+
+          &.image
+            background-size: cover
+            background-repeat: no-repeat
+            background-position: center top
+            height: 61px
+
+            @media #{$xs-big-screen}
+              height: 91px
+
+          &.content
+            font-size: 20px
+
+            .heading
+              font-family: 'SarabunBold'
+            .description
+              font-size: 18px
+              color: #666
+
+      .search-result-button.row
+        border-bottom: 1px solid #{$brand-color}
+        .search-result-button.col
+          text-align: left
+          padding-top: 5px
+          padding-bottom: 1px
+          .searchterm
+            font-family: 'SarabunBold'
+
+  .mobile-search-result-indicator.row
+    border-top: 1px solid #{$brand-color}
+    .mobile-search-result-indicator.col
+      text-align: center
+      color: #{$brand-color}
+
+  .desktop-search.row
+    padding-top: 150px
+    margin-top: 50px
+    margin-bottom: 100px
+    background-image: url('/assets/images/longbanner_map.jpg')
+    background-size: cover
+    background-position: center
+    height: 300px
+
+    .desktop-search-box
+      // border: 2px solid #{$brand-color}
+      padding: 8px 10px 5px 20px
+      height: 50px
+      border-radius: 0px
+      background-color: rgba(255,255,255,0.9)
+
+    .fa-search
+      position: absolute
+      right: 30px
+      bottom: 15px
+      color: #{$brand-color}
+
+  .desktop-menu
+    margin-bottom: 20px
+    text-align: center
+    a.desktop-menu-item
+      display: inline-block
+      background-color: #{$brand-color}
+      padding: 5px 15px 0px
+      color: #fff
+      margin-right: 1px
+      transition: 0.3s all
+
+      &:hover, &.active
+        background-color: #fff
+        color: #{$brand-color}
+
+  .desktop-banner
+    background-size: cover
+    height: 300px
+    margin-bottom: 30px
+
+  .row.desktop-donation
+    font-size: 18px
+    margin-bottom: 30px
+    .row.desktop-donation-header
+      background-color: #{$brand-color}
+      padding-top: 3px
+      color: #fff
+    .row.desktop-donation-row
+      padding-top: 3px
+      border-bottom: 1px solid #b9b9b9
+
+  .news-section
+    padding: 0px 10px
+    
+    .subheader
+      border-bottom: 2px solid #{$brand-color}
+      text-align: center
+      margin-bottom: 20px
+      color: #{$brand-color}
+      font-size: 28px
+    .news-item-container
+      height: 200px
+      background-size: cover
+      background-position: center
+      background-color: #b9b9b9
+      margin-bottom: 15px
+      position: relative
+      cursor: pointer
+      transition: all 0.3s
+
+      &:hover
+        opacity: 0.8
+
+      .news-content
+        position: absolute
+        line-height: 1
+        bottom: 0px
+        left: 0px
+        .news-date
+          display: inline-block
+          background-color: #{$brand-color}
+          color: #fff
+          font-size: 20px
+          padding: 4px 20px 3px
+        .news-caption
+          font-family: SarabunBold
+          max-height: 80px
+          line-height: 0.95
+          font-size: 20px
+          padding: 10px 20px
+          overflow-y: hidden
+          color: #fff
+          background-color: rgba(0,0,0,0.7)
+
+
+  .navbar
+    height: 60px
+    background-color: #{$brand-color}
+
+
+    
+    .navbar-menu

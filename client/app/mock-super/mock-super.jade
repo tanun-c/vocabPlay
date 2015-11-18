@@ -1,0 +1,132 @@
+.container-fluid.supermock
+  
+  .top-section
+    .row.header
+    
+    .row.visible-xs.mobile-search(ng-hide="show=='news'")
+      .col-xs-12.col.mobile-search
+        input.form-control(placeholder="ค้นหาประกาศข่าว ภาควิชา บุคลากร กำหนดการ", ng-change="startSearch()", ng-model="search")
+    
+    .row.mobile-search-result(ng-hide="show=='news'")
+      .col.col-xs-12.mobile-search-result
+        .loading-img-container(ng-show='loading')
+          img.loading-img(src="/assets/images/hex-loader2.gif")
+
+        .search-result-container(ng-hide="loading")
+          .row.search-result-item(ng-repeat="result in searchResults")
+
+            .col.col-xs-2.search-result-item.image(ng-show="result.image", style="background-image: url('/assets/images/{{ result.image }}')")
+            .col.col-xs-2.search-result-item.image(ng-hide="result.image")
+
+            .col.col-xs-10.search-result-item.content
+              span.heading {{ result.name }}
+              br
+              span.description {{ result.description }}
+
+          .row.search-result-button(ng-hide="loading || !loaded")
+            .col.col-xs-12.search-result-button
+              a 
+                | ผลการค้นหาเพิ่มเติมสำหรับ 
+                span.searchterm "{{ search }}"
+    
+    .row.mobile-search-result-indicator(ng-show="searchResults.length > 3")
+      .col.col-xs-12.mobile-search-result-indicator
+        i.fa.fa-angle-double-down
+
+    .row.visible-xs.mobile-main-icon(ng-class="{'news-mode':show == 'news'}")
+      .col.col-xs-4.mobile-main-icon
+        a(href="" ng-click="show = 'menu'") 
+          .circle-button(ng-class="{active:show=='menu'}")
+            i.fa.fa-bars
+          span(ng-hide="show=='news'")
+            br
+            |  เมนู
+      .col.col-xs-4.mobile-main-icon
+        a(href="" ng-click="show = 'search'") 
+          .circle-button(ng-class="{active:show=='search'}")
+            i.fa.fa-search
+          span(ng-hide="show=='news'")
+            br
+            |  ค้นหา
+      .col.col-xs-4.mobile-main-icon
+        a(href="" ng-click="show = 'news'") 
+          .circle-button(ng-class="{active:show=='news'}")
+            i.fa.fa-newspaper-o
+          span(ng-hide="show=='news'")
+            br
+            |  ข่าวล่าสุด
+
+  .mobile-menu(ng-show="show == 'menu'")
+    .row.mobile-menu-item
+      .col-xs-10.col-xs-offset-1
+        .row
+          .col.col-xs-6.mobile-menu-item(ng-click="switch('about')")
+            | เกี่ยวกับคณะ 
+          .col.col-xs-6.mobile-menu-item
+            | วิชาการ 
+          .col.col-xs-6.mobile-menu-item(ng-click="switch('personnel')")
+            | บุคลากร 
+          .col.col-xs-6.mobile-menu-item(ng-click="switch('department')")
+            | หน่วยงาน
+          .col.col-xs-6.mobile-menu-item
+            | วิจัย 
+          .col.col-xs-6.mobile-menu-item(ng-click="switch('news')")
+            | ข่าวสาร
+          .col.col-xs-6.mobile-menu-item
+            | นิสิต 
+
+  .row.desktop-search.hidden-xs
+    .col.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3.desktop-search
+      input.form-control.desktop-search-box(placeholder="ค้นหาประกาศข่าว ภาควิชา บุคลากร กำหนดการ")
+      i.fa.fa-search
+
+  .row
+    .col-xs-12.col-sm-10.col-sm-offset-1
+      .news-section
+        .row.desktop-banner.hidden-xs
+          .col.col-sm-12
+            div.desktop-banner(style="background-image: url('http://www.eng.chula.ac.th/sites/default/files/sprailth-cue-13.jpg')")
+
+  .row.desktop-menu.hidden-xs
+    .col.col-sm-12.col-md-8.col-md-offset-2.desktop-menu
+      a.desktop-menu-item(href="" ng-click="switch('about')" ng-class="{active:menu =='about'}") เกี่ยวกับคณะ
+      a.desktop-menu-item(href="" ng-click="switch('department')" ng-class="{active:menu =='department'}") หน่วยงาน
+      a.desktop-menu-item(href="") วิชาการ
+      a.desktop-menu-item(href="" ng-click="switch('personnel')" ng-class="{active:menu =='personnel'}") คณาจารย์และบุคลากร
+      a.desktop-menu-item(href="" ng-click="switch('news')" ng-class="{active:menu =='news'}") ข่าวสาร
+      a.desktop-menu-item(href="") ติดต่อเรา
+
+  //- .row.desktop-donation.hidden-xs(ng-show="!menu")
+  //-   .col.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+  //-     .row.desktop-donation-header
+  //-       .col.col-sm-12.text-center ผู้สมทบทุนกองทุนนวัตกรรม
+  //-     .row.desktop-donation-row
+  //-       .col.col-sm-3 2 ก.ย.
+  //-       .col.col-sm-6 คุณพิสุทธิ์ เพียรมนกุล
+  //-       .col.col-sm-3 50,000
+  //-     .row.desktop-donation-row
+  //-       .col.col-sm-3 2 ก.ย.
+  //-       .col.col-sm-6 คุณพิสุทธิ์ เพียรมนกุล
+  //-       .col.col-sm-3 50,000
+
+  .row(ng-show="show=='news'")
+    .col-xs-12.col-sm-10.col-sm-offset-1
+      .news-section
+        .row.news-item
+          .col.news-item.col.col-xs-12.col-sm-6.col-lg-4(ng-repeat="menu in submenu")
+            .news-item-container(style="background-image: url('{{ menu.image }}')")
+              .row
+                .news-content
+                  //- .news-date(ng-show="news.date") {{ news.date }}
+                  .news-caption {{ menu.title }}
+            
+      .news-section(ng-repeat="group in newsGroups")
+        .row.news-item
+          .col-sm-6.col-sm-offset-3.subheader {{ group.subheader }}
+        .row.news-item
+          .col.news-item.col-sm-6.col.col-xs-12.col-sm-6.col-lg-4(ng-repeat="news in group.news")
+            .news-item-container(style="background-image: url('{{ news.image }}')")
+              .row
+                .news-content
+                  .news-date(ng-show="news.date") {{ news.date }}
+                  .news-caption {{ news.caption }}
